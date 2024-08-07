@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
+const path = require('path');
 const socketIO = require('socket.io');
 
 const app = express();
@@ -12,16 +13,16 @@ const io = socketIO(server, {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World!...');
 });
 
 app.get('/load-file', (req, res) => {
-  res.sendFile("index.html");
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 io.on('connection', (socket) => {
