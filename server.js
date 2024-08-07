@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/load-file', (req, res) => {
+  res.sendFile("index.html");
+});
+
 io.on('connection', (socket) => {
   console.log('a user connected');
   
