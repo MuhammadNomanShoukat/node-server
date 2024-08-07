@@ -99,9 +99,9 @@
   </main>
     
    
-  <script src="https://node-server-kohl.vercel.app/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io('https://node-server-kohl.vercel.app/'); // Ensure this matches the server address and port
+  <script src="/socket.io/socket.io.js"></script>
+  <script>             
+    var socket = io(window.location.origin); // Ensure this matches the server address and port
 
     socket.on('connect', () => {
       console.log('Connected to server');
